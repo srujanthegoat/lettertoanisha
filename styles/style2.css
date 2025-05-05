@@ -1,0 +1,152 @@
+body{
+
+  font-family: "Bubblegum Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.antic-didone-regular {
+  font-family: "Antic Didone", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+html{
+  scroll-behavior: smooth;
+} 
+
+
+.back-to-home-button{
+  background-color: rgb(255, 128, 171);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 20px 30px;
+  font-size: 20px;
+  font-family: "Bubblegum Sans", sans-serif;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: all 0.5s ease;
+  margin-left: 80px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.back-to-home-button:hover{
+  transform: scale(1.1);
+    background-color: rgb(255, 92, 143);
+}
+
+.text-cat-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.letter-title{
+  color: maroon;
+  font-size: 50px;
+  text-align: center;
+}
+.silly-cat{
+  width: 100px;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+
+}  
+
+ .back-to-top-container{
+ background-color:  rgb(255, 105, 180);
+ color: white;
+ position:fixed;
+ bottom: 2rem;
+ right: 2rem;
+ padding: 15px;
+ border-radius: 50%;
+ font-size: 30px;
+ box-shadow:0 5px 10px rgba(0, 0, 0, 0.3);
+ z-index: 999;
+ cursor: pointer;
+ transition: 0.3s;
+
+} 
+
+.back-to-top-container:hover {
+  transform: scale(1.1) rotate(360deg);
+  background-color: rgb(255, 70, 150);
+}
+
+.back-to-top-container:hover span{
+  transform: scale(1.6);
+}
+
+
+.envelope-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.envelope {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  background: #f06292;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  perspective: 1000px; /* for 3D flap effect */
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #CDB38B;
+  transform-origin: top;
+  transform: rotateX(0deg);
+  transition: transform 0.8s ease-in-out;
+  z-index: 2;
+  border-radius: 10px 10px 0 0;
+}
+
+.letter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:  #DDDCD5;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  z-index: 1;
+  font-family: "Antic Didone", serif;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+/* Scrollbar styling */
+.letter::-webkit-scrollbar {
+  width: 8px;
+}
+
+.letter::-webkit-scrollbar-thumb {
+  background-color: #a00035;
+  border-radius: 10px;
+}
+
+/* Flap opens on hover */
+.envelope:hover .flap {
+  transform: rotateX(-120deg);
+}
