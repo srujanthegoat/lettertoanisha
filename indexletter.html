@@ -19,6 +19,18 @@
 </head>
 
 <body>
+  
+    <div id="background"></div>
+
+  <script>
+    for (let i = 0; i < 50; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.animationDuration = `${3 + Math.random() * 5}s`;
+      heart.style.opacity = Math.random();
+      document.getElementById('background').appendChild(heart);
+    }
     
     <button onclick="goToHomePage()" class="back-to-home-button">back to home page</button>
   <div class="text-cat-container">
