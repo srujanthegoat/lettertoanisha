@@ -36,7 +36,6 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-
 /* Heart nunchi cat ayypoyindi */
 .heart {
     position: absolute;
@@ -67,7 +66,6 @@ body {
 .letter {
     background: rgba(221, 220, 213, 0.8); /* Semi-transparent background */
 }
-
 
 /* Back to Home Button */
 .back-to-home-button {
@@ -222,8 +220,6 @@ body {
     backface-visibility: hidden;
 }
 
-
-
 /* Scrollbar Styling */
 .letter::-webkit-scrollbar {
     width: 8px;
@@ -241,10 +237,9 @@ body {
     z-index: 2;
     text-align: center;
     margin-top: 20px;
-    /* background: rgba(221, 220, 213, 0.8); /* Match letter background */
     margin: 0;
     padding: 0;
-  } 
+} 
 
 .smiths-image-in-letter {
     width: 400px; /* Adjust size as needed */
@@ -269,26 +264,20 @@ body {
         width: 600px; /* Adjust size for smaller screens */
         height: 450px;
     }
-}
-.letter p {
-    opacity: 0;
-    animation: fadeIn 2s forwards;
-    animation-delay: 0.5s;
+    .arrow-prompt {
+        margin-bottom: 30px; /* Add space below arrow */
+    }
 }
 
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-
+/* Responsive for Mobile (iPhone 8) */
 @media screen and (max-width: 480px) {
     .letter-title {
         font-size: 24px;
     }
 
     .letter {
-        font-size: 16px;
+        font-size: 16px;  /* Adjust text size for better mobile readability */
+        padding: 1rem;  /* Add padding to ensure text doesn’t touch edges */
     }
 
     .back-to-top-container {
@@ -296,6 +285,26 @@ body {
         right: 1rem;
         padding: 10px;
         font-size: 20px;
+    }
+
+    .arrow {
+        width: 40px;  /* Make the arrow smaller for mobile screens */
+    }
+
+    /* Reduce font size in the envelope */
+    .envelope {
+        width: 90%;
+        height: auto;
+    }
+}
+
+/* For larger screens, keep the styles as they are */
+@media (min-width: 768px) {
+    .letter-title {
+        font-size: 50px;
+    }
+    .letter {
+        font-size: 30px;
     }
 }
 
@@ -333,12 +342,10 @@ body {
 /* Active Effect for Mobile */
 @media (hover: none) {
     .back-to-top-container:active {
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
 
     .back-to-top-container:active .material-symbols-outlined {
-        transform: rotate(360deg);
+        transform: rotate(180deg);
     }
 }
-
-/*active ante click chesi nappdu start ayyedhi, hover ante paina petti na*/
