@@ -1,209 +1,344 @@
-body{
-
-  font-family: "Bubblegum Sans", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.antic-didone-regular {
-  font-family: "Antic Didone", serif;
-  font-weight: 400;
-  font-style: normal;
+html {
+    scroll-behavior: smooth;
 }
 
+body {
+    font-family: "Bubblegum Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    width: 100%;
+    min-height: 100vh; /*  min-height */
+    overflow-x: hidden;
+    background-color: #fff0f5;
+}
 
-html{
-  scroll-behavior: smooth;
-} 
-
- 
-  /* Floating Hearts */
-  #background {
+/* Background changing colour */
+#background {
     position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(270deg, #ffc0cb, #ffb6c1, #ffe4e1, #ffc0cb);
+    background-size: 600% 600%;
+    animation: gradientMove 15s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* Heart nunchi cat ayypoyindi */
+.heart {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: url('../images/flying\ cat.png') no-repeat center;
+    background-size: contain;
+    animation: flyLeftToRightBottom 12s linear infinite;
+    transform: rotate(20deg);
+}
+
+/* Keyframes for heart aka cat Animation */
+@keyframes flyLeftToRightBottom {
+    0% {
+        transform: translate(-50px, 100vh) rotate(-20deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(100vw + 50px, -50px) rotate(20deg);
+        opacity: 0;
+    }
+}
+
+/* Transparent Letter Container */
+.letter {
+    background: rgba(221, 220, 213, 0.8); /* Semi-transparent background */
+}
+
+
+/* Back to Home Button */
+.back-to-home-button {
+    background-color: rgb(255, 128, 171);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 20px 30px;
+    font-size: 20px;
+    font-family: "Bubblegum Sans", sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease;
+    margin-left: 80px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.back-to-home-button:hover {
+    transform: scale(1.1);
+    background-color: rgb(255, 92, 143);
+}
+
+/* Header Section */
+.text-cat-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.letter-title {
+    color: maroon;
+    font-size: 50px;
+    text-align: center;
+}
+
+.silly-cat {
+    width: 100px;
+}
+
+/* Envelope and Letter with Prompt */
+.envelope-wrapper {
+    display: flex;
+    flex-direction: column; /* Stack the prompt and envelope */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background: transparent;
+    position: relative; /* Needed for absolute positioning of elements inside */
+}
+
+.arrow-prompt {
+    text-align: center;
+    margin-bottom: 20px;
+    z-index: 3; 
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.envelope-wrapper.open .arrow-prompt {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.arrow-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow {
+    width: 50px;
+    transform: rotate(0deg); /* Straight arrow */
+    animation: bounce 1s infinite;
+}
+
+.prompt-text {
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 24px;
+    color: #0c0006;
+    margin-top: 10px;
+    text-align: center;
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg); /* Keep rotation at 0 during bounce */
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(0deg); /* Keep rotation at 0 during bounce */
+    }
+}
+
+.envelope {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    background: maroon;
+    border-radius: 10px;
+    overflow: hidden;
+    perspective: 1000px;
+    transition: transform 1s ease;
+    transform-origin: top;
+    cursor: pointer;
+}
+
+.envelope.open .letter {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.flap {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    z-index: -1;
-  }
-  
-  .heart {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background: url('../images/red-heart.png') no-repeat center;
-    background-size: contain;
-    animation: floatUp linear infinite;
-  }
-  
-  @keyframes floatUp {
-    0% {
-      transform: translateY(100vh) scale(1);
-    }
-    100% {
-      transform: translateY(-100vh) scale(1.2);
-    }
-  }
-  
-
-  @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-      align-items: center;
-    }
-
-
-.back-to-home-button{
-  background-color: rgb(255, 128, 171);
-  color: white;
-  border: none;
-  border-radius: 15px;
-  padding: 20px 30px;
-  font-size: 20px;
-  font-family: "Bubblegum Sans", sans-serif;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: all 0.5s ease;
-  margin-left: 80px;
-  margin-top: 30px;
-  margin-bottom: 40px;
+    background: #800000;
+    transform-origin: top;
+    transform: translateY(0); /* Initial flap position for slide */
+    transition: transform 0.8s ease-in-out;
+    z-index: 2;
+    border-radius: 10px 10px 0 0;
+    backface-visibility: hidden;
 }
 
-.back-to-home-button:hover{
-  transform: scale(1.1);
-    background-color: rgb(255, 92, 143);
+.envelope.open .flap {
+    transform: translateY(-100%); /* Slide flap up */
 }
 
-.text-cat-container{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.letter-title{
-  color: maroon;
-  font-size: 50px;
-  text-align: center;
-}
-.silly-cat{
-  width: 100px;
-}
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24;
-
-}  
-
- .back-to-top-container{
- background-color:  rgb(255, 105, 180);
- color: white;
- position:fixed;
- bottom: 2rem;
- right: 2rem;
- padding: 15px;
- border-radius: 50%;
- font-size: 30px;
- box-shadow:0 5px 10px rgba(0, 0, 0, 0.3);
- z-index: 999;
- cursor: pointer;
- transition: 0.3s;
-
-} 
-
-.back-to-top-container:hover {
-  transform: scale(1.1) rotate(360deg);
-  background-color: rgb(255, 70, 150);
-}
-
-.back-to-top-container:hover span{
-  transform: scale(1.6);
-}
-
-.envelope-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #ffffff;
-}
-
-/* For checkbox + tap control */
-.envelope-wrapper input[type="checkbox"] {
-  display: none;
-}
-
-.envelope {
-  position: relative;
-  width: 800px;
-  height: 600px;
-  background: #f06292;
-  border-radius: 10px;
-  overflow: hidden;
-  perspective: 1000px;
-  cursor: pointer;
-}
-
-.flap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #CDB38B;
-  transform-origin: top;
-  transform: rotateX(0deg);
-  transition: transform 0.8s ease-in-out;
-  z-index: 2;
-  border-radius: 10px 10px 0 0;
-}
-
-/* LETTER - initially hidden */
 .letter {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #DDDCD5;
-  padding: 20px;
-  box-sizing: border-box;
-  overflow-y: auto;
-  z-index: 1;
-  font-family: "Antic Didone", serif;
-  font-weight: bold;
-  font-size: 30px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.5s ease;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #DDDCD5;
+    padding: 2rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+    z-index: 1;
+    font-family: "Antic Didone", serif;
+    font-weight: bold;
+    font-size: 30px;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Initially moved down */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    backface-visibility: hidden;
 }
 
-/* Scrollbar styling */
+
+
+/* Scrollbar Styling */
 .letter::-webkit-scrollbar {
-  width: 8px;
+    width: 8px;
 }
+
 .letter::-webkit-scrollbar-thumb {
-  background-color: #a00035;
-  border-radius: 10px;
+    background-color: #a00035;
+    border-radius: 10px;
 }
 
-/* OPEN on hover (desktop) */
-.envelope:hover .flap {
-  transform: rotateX(-120deg);
-}
-.envelope:hover .letter {
-  opacity: 1;
-  transform: translateY(0);
+/* The Smiths Image in Letter (Sticky) */
+.smiths-image-container {
+   position: sticky;
+    bottom: 0;
+    z-index: 2;
+    text-align: center;
+    margin-top: 20px;
+    /* background: rgba(221, 220, 213, 0.8); /* Match letter background */
+    margin: 0;
+    padding: 0;
+  } 
+
+.smiths-image-in-letter {
+    width: 400px; /* Adjust size as needed */
+    height: auto;
+    margin: 0;
+    padding: 0;
+    opacity: 1; /* Ensure it's visible */
 }
 
-/* NEW — OPEN on tap (mobile) */
-#open-letter:checked + .envelope .flap {
-  transform: rotateX(-120deg);
+/* Responsive Design */
+@media (max-width: 768px) {
+    .text-cat-container {
+        flex-direction: column; /* Stack text and cat on smaller screens */
+    }
+    .letter-title {
+        font-size: 30px; /* Smaller title for mobile */
+    }
+    .silly-cat {
+        width: 80px; /* Smaller cat on mobile */
+    }
+    .envelope {
+        width: 600px; /* Adjust size for smaller screens */
+        height: 450px;
+    }
 }
-#open-letter:checked + .envelope .letter {
-  opacity: 1;
-  transform: translateY(0);
+.letter p {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    animation-delay: 0.5s;
 }
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+@media screen and (max-width: 480px) {
+    .letter-title {
+        font-size: 24px;
+    }
+
+    .letter {
+        font-size: 16px;
+    }
+
+    .back-to-top-container {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 10px;
+        font-size: 20px;
+    }
+}
+
+/* Back to Top Container */
+.back-to-top-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: maroon;
+    border-radius: 50%;
+    padding: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+/* Arrow Icon */
+.back-to-top-container .material-symbols-outlined {
+    color: white;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effect for Desktop */
+@media (hover: hover) {
+    .back-to-top-container:hover {
+        transform: scale(1.2);
+    }
+
+    .back-to-top-container:hover .material-symbols-outlined {
+        transform: rotate(360deg);
+    }
+}
+
+/* Active Effect for Mobile */
+@media (hover: none) {
+    .back-to-top-container:active {
+        transform: scale(1.2);
+    }
+
+    .back-to-top-container:active .material-symbols-outlined {
+        transform: rotate(360deg);
+    }
+}
+
+/*active ante click chesi nappdu start ayyedhi, hover ante paina petti na*/

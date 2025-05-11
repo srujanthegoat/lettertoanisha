@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Letter to Anisha</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_upward" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Bubblegum Sans", sans-serif;
+      background-color: #fff0f5;
+      overflow-x: hidden;
+    }
+
+    #background {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(270deg, #ffc0cb, #ffb6c1, #ffe4e1, #ffc0cb);
+      background-size: 600% 600%;
+      animation: gradientMove 15s ease infinite;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .heart {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: url('images/flying cat.png') no-repeat center;
+      background-size: contain;
+      animation: flyLeftToRightBottom 10s linear infinite;
+      transform: rotate(-20deg);
+    }
+
+    @keyframes flyLeftToRightBottom {
+      0% {
+        transform: translate(-50px, 100vh) rotate(-20deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translate(calc(100vw + 50px), -50px) rotate(20deg);
+        opacity: 0;
+      }
+    }
+
+    .back-to-home-button {
+      background-color: rgb(255, 128, 171);
+      color: white;
+      border: none;
+      border-radius: 15px;
+      padding: 20px 30px;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.5s ease;
+      margin-left: 80px;
+      margin-top: 30px;
+      margin-bottom: 40px;
+    }
+
+    .back-to-home-button:hover {
+      transform: scale(1.1);
+      background-color: rgb(255, 92, 143);
+    }
+
+    .text-cat-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .letter-title {
+      color: maroon;
+      font-size: 50px;
+      text-align: center;
+    }
+
+    .silly-cat {
+      width: 100px;
+    }
+
+    .envelope-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      position: relative;
+    }
+
+    .arrow-prompt {
+      text-align: center;
+      margin-bottom: 20px;
+      z-index: 3; 
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .envelope.open ~ .arrow-prompt {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .arrow-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .arrow {
+      width: 50px;
+      animation: bounce 1s infinite;
+    }
+
+    .prompt-text {
+      font-size: 24px;
+      color: #0c0006;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .envelope {
+      width: 90%;
+      max-width: 800px;
+      border: 2px solid pink;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.6s ease-in-out;
+      cursor: pointer;
+    }
+
+    .envelope .letter {
+      background: rgba(221, 220, 213, 0.8);
+      padding: 30px;
+      font-size: 18px;
+      line-height: 1.6;
+      font-family: 'Antic Didone', serif;
+    }
+
+    .envelope.open .letter {
+      animation: openLetter 0.8s ease forwards;
+    }
+
+    @keyframes openLetter {
+      from { transform: scaleY(0); opacity: 0; }
+      to { transform: scaleY(1); opacity: 1; }
+    }
+
+    .smiths-image-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .smiths-image-in-letter {
+      width: 150px;
+    }
+
+    pre {
+      font-family: inherit;
+      white-space: pre-wrap;
+      margin-top: 15px;
+    }
+
+    .back-to-top-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ff85a2;
+      border-radius: 50%;
+      padding: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      color: white;
+      font-size: 30px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-to-top-container:hover {
+      background-color: #ff6490;
+    }
+  </style>
+</head>
+<body>
+  <div id="background"></div>
+  <button onclick="goToHomePage()" class="back-to-home-button">back to home page</button>
+  <div class="text-cat-container">
+    <h1 class="letter-title">letter to anisha</h1>
+    <img class="silly-cat" src="images/silly cat.png" />
+  </div>
+
+  <label class="envelope-wrapper">
+    <div class="arrow-prompt">
+      <div class="arrow-container">
+        <img class="arrow" src="images/arrow.png" alt="Tap Here Arrow">
+        <p class="prompt-text">Tap on the letter below</p>
+        <img class="arrow" src="images/arrow.png" alt="Tap Here Arrow">
+      </div>
+    </div>
+
+    <div class="envelope" id="envelope">
+      <div class="letter">
+        <p>Dear Anisha</p>
+        <hr>
+        <p>[The date when we were arguing with Naari, and the day I heard your voice]</p>
+        <!-- Your full letter content here (already in your previous message) -->
+        <p>With loveeeee,  
+        <br>Srujan aka Flash</p>
+        <div class="smiths-image-container">
+          <img class="smiths-image-in-letter" src="images/thesmiths2nobg.png" alt="The Smiths">
+        </div>
+      </div>
+    </div>
+  </label>
+
+  <a href="#" class="back-to-top-container">
+    <span class="material-symbols-outlined">arrow_upward</span>
+  </a>
+
+  <script>
+    for (let i = 0; i < 20; i++) {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.animationDuration = `${3 + Math.random() * 5}s`;
+      heart.style.opacity = Math.random();
+      document.getElementById('background').appendChild(heart);
+    }
+
+    function goToHomePage() {
+      window.location.href = "index.html";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const envelope = document.getElementById("envelope");
+      envelope.addEventListener("click", function () {
+        envelope.classList.toggle("open");
+      });
+    });
+  </script>
+</body>
+</html>
