@@ -95,19 +95,24 @@ body {
 }
 
 #hintMessage {
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  display: none;
   font-size: 18px;
   color: #4caf50;
   text-align: center;
   font-style: italic;
+  margin-top: 10px; /* You wanted this earlier */
 }
 
 #hintMessage.show {
-  opacity: 1;
   display: block;
-  margin-bottom: 20px;
+  animation: fadeIn 0.3s ease-in-out;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 
 
   /* Floating Hearts */
