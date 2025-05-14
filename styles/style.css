@@ -19,7 +19,7 @@ body {
     align-items: center;
     background-color: white;
     width: 500px;
-    height: 350px;
+    height: 370px;
     border-radius: 50px;
     margin: 10px 0 100px;
   }
@@ -80,6 +80,36 @@ body {
     background-color: #e94c8b;
   }
   
+.hint-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#hintText {
+  cursor: pointer;
+  color: #ff5c8d;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: underline;
+  text-align: center;
+}
+
+#hintMessage {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  font-size: 18px;
+  color: #4caf50;
+  text-align: center;
+  font-style: italic;
+}
+
+#hintMessage.show {
+  opacity: 1;
+  display: block;
+  margin-bottom: 20px;
+}
+
+
   /* Floating Hearts */
   #background {
     position: fixed;

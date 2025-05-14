@@ -38,8 +38,14 @@
         <input type="text" id="codeInput" placeholder="Enter your secret code"/>
         <button onclick="checkCode()">Unlock</button>
       </div>
-    </div>
 
+      <div class="hint-container">
+        <p id="hintText">Hint chahincha?</p>
+        <p id="hintMessage">Call me by my namee, throww that SRUZEN</p>
+      </div>
+
+      </div>
+    </div>
   </div>
 
   <div id="background"></div>
@@ -109,6 +115,17 @@
 
   alert(`"${input}"? Lmao MAYBE BUT that’s not even close 💀`);
 }
+
+document.getElementById("hintText").addEventListener("click", function() {
+    var hintMessage = document.getElementById("hintMessage");
+    hintMessage.style.display = "block";  // Show the message
+});
+
+document.getElementById('hintText').addEventListener('click', function () {
+  document.getElementById('hintMessage').classList.add('show');
+
+});
+
 
   </script>
 </body>

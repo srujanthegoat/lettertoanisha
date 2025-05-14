@@ -249,6 +249,67 @@ body {
     opacity: 1; /* Ensure it's visible */
 }
 
+/*footer section*/
+/* Footer Section */
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffe4e1;
+  padding: 20px;
+  flex-wrap: wrap; /* Makes it stack on small screens, like vertical on small screens re */
+  gap: 20px;    
+}
+
+.footer-text {
+  text-align: center;
+  font-family: "Bubblegum Sans", sans-serif;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+  max-width: 400px;
+  color: #800000;
+}
+
+.puppy-suite {
+  width: 120px;
+  height: auto;
+}
+
+.footer-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .footer-text {
+    font-size: 16px;
+  }
+
+  .puppy-suite {
+    width: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    flex-direction: column;
+  }
+
+  .footer-text {
+    font-size: 15px;
+    padding: 0 10px;
+  }
+
+  .puppy-suite {
+    width: 90px;
+  }
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .text-cat-container {
